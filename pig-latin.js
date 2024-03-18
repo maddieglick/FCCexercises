@@ -1,29 +1,22 @@
 function translatePigLatin(str) {
-  //the function takes one word (a string) as the argument
-  //if the word begins with a consonant or a consonant cluster, move it to the end and add "ay" to the end
-  //if the word begins with a vowel, just add "way" to the end of it
-  //if no vowels, just add 'ay' to the end.
-  //make empty str
-//if num consonants == str.length, add 'ay' to the end
+//let vowelIndex = index of the first instance of a vowel
+let toTranslate = str.slice(0,);
+let pigLatin = ''
+const vowels = /[aeiou]/; //regex for vowels
+let vowelIndex = toTranslate.search(vowels); //search string for vowels, vowelIndex = index of first vowel
 
-  let pigLatin = ''
-  //regex for vowels
-  const vowels = /[aeiou]/;
-  console.log(str[0]==vowels)
-  //regex for consonants
-  //const consonants = 
-  // for(let i=0; i<str.length; i++){
-  //   if(str[0] == 'a'|| str[0] == 'e' || str[0] == 'i' || str[0] == 'o' || str[0] == 'u'){
-  //     pigLatin = str.concat('way'); //if str starts w a vowel, add 'way' to the end
-  //   }
-  //   else if(str[i+1]){
+if(vowelIndex == 0){ //if vowelIndex = 0
+  pigLatin = toTranslate + 'way'; //add 'way' to the end of it. (else -> elseway)
+}
+else if(vowelIndex == -1){ //if vowelIndex = -1
+  pigLatin = toTranslate + 'ay'; //add 'ay' to the end (no vowels)
+}
+else if(vowelIndex > 0){ //if vowelIndex > 0
+  let consonants = str.substring(0,vowelIndex); //the consonants before 1st vowel
+  let secondHalf = str.substring(vowelIndex); //vowel & the rest of the word
+  pigLatin = secondHalf + consonants + 'ay' //concatenating to make the new translated word
+}
+return pigLatin;
+}
 
-  //   }
-  // }
-//return pigLatin
-  //split string into an array of letters
-  //loop through array 
-    //if first 
-};
-
-translatePigLatin("alligator");
+translatePigLatin("schwartz");

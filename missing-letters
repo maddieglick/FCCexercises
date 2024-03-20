@@ -3,23 +3,21 @@ function fearNotLetter(str) {
 
 const missingSomething = str.split('') //split str into array
 
-const alphabetString = 'abcdefghijklmnopqrstuvwxyz' //make string of actual alphabet
-
-const alphabetArr = alphabetString.split('') //split into array of letters
+const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('') //make array of letters in alphabet
 
 const firstLetter = missingSomething[0] //first letter in the messed up range
 
 const lastLetter = missingSomething[missingSomething.length - 1] //last letter in the messed up range
 
-//the range of complete alphabet needed
-const alphabetSlice = alphabetArr.slice(alphabetArr.indexOf(firstLetter), alphabetArr.indexOf(lastLetter)+1);
+//the range of complete alphabet needed (+1 bc not inclusive)
+const alphabetSlice = alphabet.slice(alphabet.indexOf(firstLetter), alphabet.indexOf(lastLetter)+1);
 
 //filter through alphabet for letter that is not included in missingSomething
 const missingLetter = alphabetSlice.filter((letter) => missingSomething.includes(letter) !== true )
 
 if(missingLetter.length == 0){ //if there are no missing letters
     return undefined 
-  }else{ //if theres a missing letter
+  }else{ //if there is a missing letter
     return missingLetter.toString() //convert to string and return
   }
 }

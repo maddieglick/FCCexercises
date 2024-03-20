@@ -1,0 +1,27 @@
+function fearNotLetter(str) {
+/*for each segment of the alphabet passed to the function, return the letter that is missing when in alphabetical order*/
+
+const missingSomething = str.split('') //split str into array
+
+const alphabetString = 'abcdefghijklmnopqrstuvwxyz' //make string of actual alphabet
+
+const alphabetArr = alphabetString.split('') //split into array of letters
+
+const firstLetter = missingSomething[0] //first letter in the messed up range
+
+const lastLetter = missingSomething[missingSomething.length - 1] //last letter in the messed up range
+
+//the range of complete alphabet needed
+const alphabetSlice = alphabetArr.slice(alphabetArr.indexOf(firstLetter), alphabetArr.indexOf(lastLetter)+1);
+
+//filter through alphabet for letter that is not included in missingSomething
+const missingLetter = alphabetSlice.filter((letter) => missingSomething.includes(letter) !== true )
+
+if(missingLetter.length == 0){ //if there are no missing letters
+    return undefined 
+  }else{ //if theres a missing letter
+    return missingLetter.toString() //convert to string and return
+  }
+}
+
+fearNotLetter("abc");

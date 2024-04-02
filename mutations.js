@@ -26,6 +26,6 @@ for(let i in wordTwoLetts){
   return true;
 }
 
-mutation(["hello", "hey"]);
-
+console.log(mutation(["hello", "hey"]));
+console.log("hi")
 // issue i had: i had the return true line inside of the for loop and it was messing with the code and making it return true as soon as the first letter was a match.

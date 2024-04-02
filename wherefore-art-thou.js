@@ -9,7 +9,7 @@ function whatIsInAName(collection, source) {
 
     //Object.entries(obj) gives an array of arrays containing the key and value of the object(s)
     const timesNeededToMatch = Object.entries(source).length; // length of key/value pairs in source obj
-
+    console.log(Object.entries(source));
     // loop for having access to key, val pair within collectionObj - represented with "key" and "value"
     //uses destructuring
     for (const [key, value] of Object.entries(collectionObj)) {
